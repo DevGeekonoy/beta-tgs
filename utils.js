@@ -10,7 +10,7 @@ const transporter = nodemailer.createTransport({
 });
 
 async function sendEMail({ name, email, phone, message }) {
-  const recipients = ["venkat@geekonomy.in"];
+  const recipients = ["info@thegeekstudio.ae"];
   const mailOptions = {
     from: "foo@example.com",
     to: recipients.join(", "),
