@@ -1,4 +1,53 @@
 const nodemailer = require("nodemailer");
+const fs = require("fs");
+const logoBuffer = fs.readFileSync("../backend/assets/images/Geek_Studio_Logo 1.svg");
+const mailphoneBuffer = fs.readFileSync("../backend/assets/images/mail-phone.png");
+const webappBuffer = fs.readFileSync("../backend/assets/services/webdev.svg");
+const advertisingblackBuffer = fs.readFileSync(
+  "../backend/assets/services/advertising.svg"
+);
+const publiceBuffer = fs.readFileSync("../backend/assets/services/public.png");
+const brandinggBuffer = fs.readFileSync("../backend/assets/services/branding.png");
+const customererBuffer = fs.readFileSync("../backend/assets/services/customer.png");
+const marketingblackBuffer = fs.readFileSync(
+  "../backend/assets/services/marketingblack.png"
+);
+const performanceBuffer = fs.readFileSync("../backend/assets/images/performance.png");
+const geekstudiomaillogoBuffer = fs.readFileSync(
+  "../backend/assets/images/Geek_Studio_Logo 2.png"
+);
+
+// Convert buffers to Base64 data URLs
+const logoDataUrl = `data:image/svg+xml;base64,${logoBuffer.toString(
+  "base64"
+)}`;
+const mailphoneDataUrl = `data:image/png;base64,${mailphoneBuffer.toString(
+  "base64"
+)}`;
+const webappDataUrl = `data:image/svg+xml;base64,${webappBuffer.toString(
+  "base64"
+)}`;
+const advertisingblackDataUrl = `data:image/svg+xml;base64,${advertisingblackBuffer.toString(
+  "base64"
+)}`;
+const publiceDataUrl = `data:image/png;base64,${publiceBuffer.toString(
+  "base64"
+)}`;
+const brandinggDataUrl = `data:image/png;base64,${brandinggBuffer.toString(
+  "base64"
+)}`;
+const customererDataUrl = `data:image/png;base64,${customererBuffer.toString(
+  "base64"
+)}`;
+const marketingblackDataUrl = `data:image/png;base64,${marketingblackBuffer.toString(
+  "base64"
+)}`;
+const performanceDataUrl = `data:image/png;base64,${performanceBuffer.toString(
+  "base64"
+)}`;
+const geekstudiomaillogoDataUrl = `data:image/png;base64,${geekstudiomaillogoBuffer.toString(
+  "base64"
+)}`;
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
   port: 587,
@@ -8,29 +57,297 @@ const transporter = nodemailer.createTransport({
     pass: "exaluftdipqnbdow",
   },
 });
-
 async function sendEMail({ name, email, phone, message }) {
-  const recipients = ["info@thegeekstudio.ae"];
+  const recipients = ["venkat@geekonomy.in"];
   const mailOptions = {
     from: "foo@example.com",
     to: recipients.join(", "),
     subject: " 📧  Mail from TheGeekStudio Website 📧",
     html: `
-      <table style="width: 100%; max-width: 600px; margin: 0 auto; font-family: Arial, sans-serif;">
-        <tr>
-          <td style="background-color: #EF3A37; padding: 20px; text-align: center;">
-            <h1 style="color: #fff; font-size: 24px;">🎉 Client Info Details 🎉</h1>
-          </td>
-        </tr>
-        <tr>
-          <td style="background-color: #ffffff; padding: 20px; border: 1px solid #edf2f7;">
-            <p style="font-size: 16px;"><strong>Name:</strong> ${name}</p>
-            <p style="font-size: 16px;"><strong>Email:</strong> ${email}</p>
-            <p style="font-size: 16px;"><strong>Phone:</strong> ${phone}</p>
-            <p style="font-size: 16px;"><strong>Message:</strong> ${message}</p>
-          </td>
-        </tr>
-      </table>
+     
+      <div className="w-full max-w-3xl mx-auto font-sans bg-[#D9D9D9]">
+      <img
+        src=${logoDataUrl}
+        alt="Logo Image"
+        title="Company Logo"
+        className="w-full h-28"
+      />
+      <div className="bg-[#FFFFFF]  flex justify-center items-center ml-5 mr-5">
+        <div className="w-1/2">
+          <img
+            src=${mailphoneDataUrl}
+            alt="Logo Image"
+            title="Company Logo"
+            className="w-full h-[484px]"
+          />
+        </div>
+        <div className="w-1/2">
+          <h1 className="text-[#000000] italic text-7xl mb-10">
+            Let’s <br /> Talk
+          </h1>
+          <p className="text-[#777777] text-2xl mb-5">
+            Learn and get more solid insights on what measures can be taken to
+            uplift your brand
+          </p>
+          <button className="text-white font-bold text-[14px] rounded-md px-8 py-3 bg-[#EF3A37] block md:w-48 uppercase sm:w-auto w-full mt-4 sm:mt-0">
+            <Link to="/contact-us">Schedule A Call</Link>
+          </button>
+        </div>
+      </div>
+      <div className="bg-[#D9D9D9] w-full container mx-auto  py-20">
+        <h1 className="text-[#000000] text-center text-4xl italic px-10">
+          Delivering every need of yours on the go
+        </h1>
+        <div className="flex w-full px-10 py-10 justify-center">
+          <div className="w-1/2 flex flex-col justify-center items-center">
+            <div className="relative inline-block p-10 transition-transform transform hover:scale-105 bg-white rounded-full">
+              <div className="absolute inset-0 bg-white opacity-0 transition-opacity duration-300  rounded-full"></div>
+              <img
+                src=${marketingblackDataUrl}
+                alt="Marketing Black"
+                className="object-cover w-20 h-20"
+              />
+            </div>
+            <div>
+              <h1 className="text-black font-bold mt-3 mb-7 text-xl">
+                Digital Marketing
+              </h1>
+            </div>
+            <button className="text-white font-bold text-[14px] rounded-md px-8 py-3 bg-[#EF3A37] block md:w-48 uppercase sm:w-auto w-full sm:mt-0">
+              <Link to="/contact-us">VIEW CASE STUDY</Link>
+            </button>
+          </div>
+          <div className="w-1/2 flex flex-col justify-center items-center">
+            <div className="relative inline-block p-10 transition-transform transform hover:scale-105 bg-white rounded-full">
+              <div className="absolute inset-0 bg-white opacity-0 transition-opacity duration-300  rounded-full"></div>
+              <img
+                src=${webappDataUrl}
+                alt="Marketing Black"
+                className="object-cover w-20 h-20"
+              />
+            </div>
+            <div>
+              <h1 className="text-black font-bold mt-3 mb-7 text-xl">
+                Custom Development
+              </h1>
+            </div>
+            <button className="text-white font-bold text-[14px] rounded-md px-8 py-3 bg-[#EF3A37] block md:w-48 uppercase sm:w-auto w-full sm:mt-0">
+              <Link to="/contact-us">VIEW CASE STUDY</Link>
+            </button>
+          </div>
+        </div>
+        <div className="flex w-full px-10 py-10 justify-center">
+          <div className="w-1/2 flex flex-col justify-center items-center">
+            <div className="relative inline-block p-10 transition-transform transform hover:scale-105 bg-white rounded-full">
+              <div className="absolute inset-0 bg-white opacity-0 transition-opacity duration-300  rounded-full"></div>
+              <img
+                src=${customererDataUrl}
+                alt="Marketing Black"
+                className="object-cover w-20 h-20"
+              />
+            </div>
+            <div>
+              <h1 className="text-black font-bold mt-3 mb-7 text-xl">
+                Customer Retention
+              </h1>
+            </div>
+            <button className="text-white font-bold text-[14px] rounded-md px-8 py-3 bg-[#EF3A37] block md:w-48 uppercase sm:w-auto w-full sm:mt-0">
+              <Link to="/contact-us">VIEW CASE STUDY</Link>
+            </button>
+          </div>
+          <div className="w-1/2 flex flex-col justify-center items-center">
+            <div className="relative inline-block p-10 transition-transform transform hover:scale-105 bg-white rounded-full">
+              <div className="absolute inset-0 bg-white opacity-0 transition-opacity duration-300  rounded-full"></div>
+              <img
+                src=${publiceDataUrl}
+                alt="Marketing Black"
+                className="object-cover w-20 h-20"
+              />
+            </div>
+            <div>
+              <h1 className="text-black font-bold mt-3 mb-7 text-xl">
+                Public Relations
+              </h1>
+            </div>
+            <button className="text-white font-bold text-[14px] rounded-md px-8 py-3 bg-[#EF3A37] block md:w-48 uppercase sm:w-auto w-full sm:mt-0">
+              <Link to="/contact-us">VIEW CASE STUDY</Link>
+            </button>
+          </div>
+        </div>
+        <div className="flex w-full px-10 py-10 justify-center">
+          <div className="w-1/2 flex flex-col justify-center items-center">
+            <div className="relative inline-block p-10 transition-transform transform hover:scale-105 bg-white rounded-full">
+              <div className="absolute inset-0 bg-white opacity-0 transition-opacity duration-300  rounded-full"></div>
+              <img
+                src=${advertisingblackDataUrl}
+                alt="Marketing Black"
+                className="object-cover w-20 h-20"
+              />
+            </div>
+            <div>
+              <h1 className="text-black font-bold mt-3 mb-7 text-xl">
+                Advertising
+              </h1>
+            </div>
+            <button className="text-white font-bold text-[14px] rounded-md px-8 py-3 bg-[#EF3A37] block md:w-48 uppercase sm:w-auto w-full sm:mt-0">
+              <Link to="/contact-us">VIEW CASE STUDY</Link>
+            </button>
+          </div>
+          <div className="w-1/2 flex flex-col justify-center items-center">
+            <div className="relative inline-block p-10 transition-transform transform hover:scale-105 bg-white rounded-full">
+              <div className="absolute inset-0 bg-white opacity-0 transition-opacity duration-300  rounded-full"></div>
+              <img
+                src=${brandinggDataUrl}
+                alt="Marketing Black"
+                className="object-cover w-20 h-20"
+              />
+            </div>
+            <div>
+              <h1 className="text-black font-bold mt-3 mb-7 text-xl">
+                Branding
+              </h1>
+            </div>
+            <button className="text-white font-bold text-[14px] rounded-md px-8 py-3 bg-[#EF3A37] block md:w-48 uppercase sm:w-auto w-full sm:mt-0">
+              <Link to="/contact-us">VIEW CASE STUDY</Link>
+            </button>
+          </div>
+        </div>
+        <div className="flex w-full px-10 py-10 justify-center">
+          <div className="w-1/2 flex flex-col justify-center items-center">
+            <div className="relative inline-block p-10 transition-transform transform hover:scale-105 bg-white rounded-full">
+              <div className="absolute inset-0 bg-white opacity-0 transition-opacity duration-300  rounded-full"></div>
+              <img
+                src=${webappDataUrl}
+                alt="Marketing Black"
+                className="object-cover w-20 h-20"
+              />
+            </div>
+            <div>
+              <h1 className="text-black font-bold mt-3 mb-7 text-xl">
+                Web & App Development
+              </h1>
+            </div>
+            <button className="text-white font-bold text-[14px] rounded-md px-8 py-3 bg-[#EF3A37] block md:w-48 uppercase sm:w-auto w-full sm:mt-0">
+              <Link to="/contact-us">VIEW CASE STUDY</Link>
+            </button>
+          </div>
+          <div className="w-1/2 flex flex-col justify-center items-center">
+            <div className="relative inline-block p-10 transition-transform transform hover:scale-105 bg-white rounded-full">
+              <div className="absolute inset-0 bg-white opacity-0 transition-opacity duration-300  rounded-full"></div>
+              <img
+                src=${performanceDataUrl}
+                alt="Marketing Black"
+                className="object-cover w-20 h-20"
+              />
+            </div>
+            <div>
+              <h1 className="text-black font-bold mt-3 mb-7 text-xl">
+                Performance & Growth Marketing
+              </h1>
+            </div>
+            <button className="text-white font-bold text-[14px] rounded-md px-8 py-3 bg-[#EF3A37] block md:w-48 uppercase sm:w-auto w-full sm:mt-0">
+              <Link to="/contact-us">VIEW CASE STUDY</Link>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        className="bg-[#FFFFFF]   flex justify-center items-center flex-col
+       ml-5 mr-5"
+      >
+        <h1 className="text-[#000000] italic text-4xl mb-10 mt-10 text-center">
+          Need More Help?
+        </h1>
+
+        <button className="text-white font-bold text-[14px] rounded-md px-8 py-3 bg-[#EF3A37] block md:w-48 uppercase sm:w-auto w-full mt-4 sm:mt-0">
+          <Link to="/contact-us">Schedule A Call</Link>
+        </button>
+        <div className="py-16">
+          <div className="container mx-auto px-10">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+              <div className="flex justify-center items-center">
+                <div className="bg-black p-2 rounded-full hover:bg-red-600 transition duration-300">
+                 
+                </div>
+                <a
+                  href="mailto:info@thegeekstudio.ae"
+                  className="text-[#000000] font-semibold ml-5"
+                >
+                  info@thegeekstudio.ae
+                </a>
+              </div>
+              <div className="flex justify-center items-center">
+                <div className="bg-black p-2 rounded-full hover:bg-red-600 transition duration-300">
+                 
+                </div>
+                <a
+                  href="https://www.thegeekstudio.ae"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#000000] font-semibold ml-5"
+                >
+                  www.thegeekstudio.ae
+                </a>
+              </div>
+              <div className="flex justify-center items-center">
+                <div className="bg-black p-2 rounded-full hover:bg-red-600 transition duration-300">
+                 
+                </div>
+                <a
+                  href="tel:+971548887187"
+                  className="text-[#000000] font-semibold ml-5"
+                >
+                  +971 548887187
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <img src=${geekstudiomaillogoDataUrl} alt="" className="w-auto h-auto" />
+      <div className=" py-8 flex justify-center">
+        <a
+          href="https://youtube.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mx-2"
+        >
+          <div className="bg-black p-2 rounded-full hover:bg-red-600 transition duration-300">
+           
+          </div>
+        </a>
+        <a
+          href="https://linkedin.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mx-2"
+        >
+          <div className="bg-black p-2 rounded-full hover:bg-red-600 transition duration-300">
+          
+          </div>
+        </a>
+        <a
+          href="https://instagram.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mx-2"
+        >
+          <div className="bg-black p-2 rounded-full hover:bg-red-600 transition duration-300">
+         
+          </div>
+        </a>
+        <a
+          href="https://facebook.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mx-2"
+        >
+          <div className="bg-black p-2 rounded-full hover:bg-red-600 transition duration-300">
+           
+          </div>
+        </a>
+      </div>
+      </div>
+    </div>
     `,
   };
 
