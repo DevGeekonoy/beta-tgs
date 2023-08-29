@@ -35,7 +35,7 @@ async function sendEMail({ name, email, phone, message }) {
       <p>Thank you for reaching out to TheGeekStudio. We have received your message and our team will get back to you shortly.</p>
       <p>In the meantime, feel free to explore more about us:</p>
       <ul>
-        <li><a href="https://www.thegeekstudio.ae" target="_blank">Visit Our Website</a></li>
+        <li><a href="https://thegeekstudio.ae/" target="_blank">Visit Our Website</a></li>
         <li><a href="https://www.instagram.com/thegeekstudio_ae/" target="_blank">Follow us on Instagram</a></li>
         <li><a href="https://www.facebook.com/profile.php?id=100093491574263" target="_blank">Like us on Facebook</a></li>
         <li><a href="https://www.linkedin.com/company/the-geek-studio/" target="_blank">Follow us on Linkedin</a></li>
