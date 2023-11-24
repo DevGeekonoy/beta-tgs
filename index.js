@@ -15,15 +15,16 @@ app.get("/", (req, res) => {
 });
 
 app.post("/sendmail", async (req, res) => {
-  const { name, email, phone, message } = req.body;
+  const { name, email, phone, message,website } = req.body;
   try {
     console.log("Received a request to send an email.");
     console.log("Name:", name);
     console.log("Email:", email);
     console.log("Phone:", phone);
     console.log("Message:", message);
+    console.log("website:", website);
 
-    const response = await sendEMail({ name, email, phone, message });
+    const response = await sendEMail({ name, email, phone, message,website });
 
     res.status(200).json({ message: response });
   } catch (error) {
